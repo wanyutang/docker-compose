@@ -1,0 +1,21 @@
+# docker-compose -f docker/docker-compose-nodejs.yml -f docker/docker-compose-mongo.yml config > docker/docker-compose-f3.yml
+# Use root/example as user/password credentials
+# docker push wanyutang/nodejs-website:alpine1.0
+version: "3.1"
+
+services:
+  alpine:
+    container_name: alpine:latest
+    image: alpine
+    restart: always
+    volumes:
+      - /temp:/data
+    networks:
+      - backend
+volumes:
+  volume-demo:
+    external: true
+networks:
+  backend:
+    external:
+      name: network-backend
