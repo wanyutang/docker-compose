@@ -4,16 +4,17 @@
 version: "3.1"
 
 services:
-  fun3w-api-alpine:
-    container_name: fun3w-api-alpine
+  node-website:
+    container_name: node-website
     build:
       context: .
-    image: fun3w/api-alpine
+    image: fun3w/node-website
     restart: always
+    ports:
+      - 3003:3000
+      - 9003:9320
     volumes:
-      - /temp:/data
-      - $HOME/.ssh:/root/.ssh
-      # - $(pwd):/git
+      - ./app:/website
     networks:
       - backend
 volumes:

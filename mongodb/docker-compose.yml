@@ -1,0 +1,20 @@
+
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - volume-demo:/data/db
+    networks:
+      - backend
+    command: mongod --auth
+volumes:
+  volume-demo:
+    external: true
+networks:
+  backend:
+    external:
+      name: network-backend
