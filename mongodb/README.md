@@ -5,25 +5,21 @@
 
 ```bash
 mongo
+use admin
 db.createUser({ user: 'demo', pwd: 'demo123', roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });
 # stop container
 # remark command: mongod --auth
 # start container
-mongo -port 27017 -u 'myUserAdmin' -p 'abc123' -authenticationDatabase 'admin'
-
-
-use admin
-db.createUser({
-  user: 'root',
-  pwd: 'root',
-  roles: [{role: 'userAdminAnyDatabase', db: 'admin'}]
-})
-
-
-use test
-db.createUser({
-  user: 'test',
-  pwd: 'test',
-  roles: [{role: 'readWrite', db: 'test'}]
-})
 ```
+
+## nas
+
+```bash
+docker container ls
+sudo docker exec -it 58553f890240 /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+```
+
+## MongoDB Compass
+
+- [MongoDB Compass](https://www.mongodb.com/download-center/compass)
+- mongodb://demo:demo123@localhost:27017
