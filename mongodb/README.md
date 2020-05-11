@@ -15,7 +15,7 @@ db.createUser({ user: 'demo', pwd: 'demo123', roles: [ { role: 'userAdminAnyData
 ## nas
 
 ```bash
-docker container ls
+sudo docker container ls
 sudo docker exec -it 58553f890240 /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
 ```
 
